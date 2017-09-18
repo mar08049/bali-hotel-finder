@@ -6,7 +6,8 @@ class BaliHotelFinder::Hotel
     @name = name
     @hotel_class = hotel_class
     @location = location
+    @contact = description
     @description = description
   end
-  
+
 end
