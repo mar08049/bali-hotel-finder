@@ -1,6 +1,6 @@
 class BaliHotelFinder::Hotel
 
-  attr_accessor :name, :location, :website_url, :contact, :description
+  attr_accessor :name, :location, :description
 
   @@all = []
 
@@ -8,8 +8,8 @@ class BaliHotelFinder::Hotel
     self.new(
       i.css("h2").text,
       "https://travel.usnews.com/Hotels/Bali_Indonesia/#{i.css("a").attribute("href").text}",
-      i.css("h3").text,
-      i.css(".position").text
+      i.css("h3").text
+      i.css(".location").text
       )
   end
 
@@ -29,19 +29,11 @@ class BaliHotelFinder::Hotel
   end
 
   def location
-    @best_dish ||= doc.xpath("path").text
-  end
-
-  def contact
-    @contact ||= doc.xpath("path").text.split("+").join(". Tel: +")
-  end
-
-  def website_url
-    @website_url ||= doc.xpath("path").text
+    @best_dish ||= doc.xpath("//div[@class=text-loose hero-ranking-data-contact block-normal text-small]").text
   end
 
   def description
-    @description ||= doc.xpath("path").text
+    @description ||= doc.xpath("//div[#{id=profile-overview}]").text
   end
 
   def doc
