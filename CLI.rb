@@ -31,7 +31,6 @@ class BaliHotelFinder::CLI
         def print_hotels(hotel)
           puts "#{hotel.name}" - "#{hotel.location}"
           puts ""
-          puts "Location:    #{hotel.location}"
           puts "Contact:     #{hotel.contact}"
           puts "Class:     #{hotel.hotel_class}"
           puts ""
