@@ -27,6 +27,7 @@ class BaliHotelFinder::CLI
         else
           goodbye
         end
+    end
 
         def print_hotels(hotel)
           puts "#{hotel.name}" - "#{hotel.location}"
@@ -38,6 +39,7 @@ class BaliHotelFinder::CLI
           puts ""
           puts "#{hotel.description}"
         end
+    
         def goodbye
           puts "Thank you! Come back later for updated hotels and prices."
         end
